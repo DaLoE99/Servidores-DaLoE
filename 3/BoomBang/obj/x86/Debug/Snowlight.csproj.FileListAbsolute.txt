@@ -1,0 +1,14 @@
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\bin\Snowlight.exe.config
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\bin\Snowlight.exe.manifest
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\bin\Snowlight.application
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\bin\Snowlight.exe
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\bin\Snowlight.pdb
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\obj\x86\Debug\Snowlight.csprojResolveAssemblyReference.cache
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\obj\x86\Debug\Snowlight.TrustInfo.xml
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\obj\x86\Debug\Snowlight.exe.manifest
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\obj\x86\Debug\Snowlight.application
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\obj\x86\Debug\Snowlight.exe
+C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\obj\x86\Debug\Snowlight.pdb
+C:\Users\Administrator\Desktop\BoomBang\bin\Snowlight.exe.config
+C:\Users\Administrator\Desktop\BoomBang\obj\x86\Debug\Snowlight.exe
+C:\Users\Administrator\Desktop\BoomBang\obj\x86\Debug\Snowlight.pdb

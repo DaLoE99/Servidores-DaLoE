@@ -1,0 +1,5 @@
+C:\Users\MentaL\Documents\Visual Studio 2008\Projects\Boombang_C\Boombang_C\obj\Debug\Boombang_C.exe
+C:\Users\MentaL\Documents\Visual Studio 2008\Projects\Boombang_C\Boombang_C\obj\Debug\Boombang_C.pdb
+C:\Users\MentaL\Documents\Visual Studio 2008\Projects\Boombang_C\Boombang_C\bin\Debug\Boombang_C.exe
+C:\Users\MentaL\Documents\Visual Studio 2008\Projects\Boombang_C\Boombang_C\bin\Debug\Boombang_C.pdb
+C:\Users\MentaL\Documents\Visual Studio 2008\Projects\Boombang_C\Boombang_C\obj\Debug\ResolveAssemblyReference.cache

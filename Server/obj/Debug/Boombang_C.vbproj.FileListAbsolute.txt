@@ -1,0 +1,18 @@
+C:\Users\Broker\Desktop\Server\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Broker\Desktop\Server\obj\Debug\Boombang_C.exe
+C:\Users\Broker\Desktop\Server\obj\Debug\Boombang_C.pdb
+C:\Users\Broker\Desktop\Server\Boombang_C.exe
+C:\Users\Broker\Desktop\Server\Boombang_C.pdb
+C:\Users\Broker\Desktop\Server\MySql.Data.dll
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Retro Files\Server\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Retro Files\Server\obj\Debug\Boombang_C.exe
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Retro Files\Server\obj\Debug\Boombang_C.pdb
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Retro Files\Server\Boombang_C.exe
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Retro Files\Server\Boombang_C.pdb
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Retro Files\Server\MySql.Data.dll
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Server\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Server\obj\Debug\Boombang_C.exe
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Server\obj\Debug\Boombang_C.pdb
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Server\Boombang_C.exe
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Server\Boombang_C.pdb
+C:\Documents and Settings\David.PEDRO-PC\Escritorio\Server\MySql.Data.dll

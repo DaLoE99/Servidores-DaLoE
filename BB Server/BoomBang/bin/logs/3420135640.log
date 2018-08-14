@@ -1,0 +1,17 @@
+## Snowlight## Server output log file## Wednesday, April 03, 2013 5:06:40 AM[5:06 AM] Initializing Snowlight...[5:06 AM] Initializing MySQL manager...[5:06 AM] Setting up server listener on port 2002...[5:06 AM] Resetting database counters and statistics...[5:06 AM] Intializing game components and workers...[5:06 AM] Could not initialize Snowlight: Unknown column 'activado' in 'where clause'
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at Snowlight.Storage.SqlDatabaseClient.ExecuteQuerySet(String CommandText) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Storage\SqlDatabaseClient.cs:line 137
+   at Snowlight.Storage.SqlDatabaseClient.ExecuteQueryTable(String CommandText) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Storage\SqlDatabaseClient.cs:line 146
+   at Snowlight.Game.Catalog.CatalogManager.RefreshCatalogData(SqlDatabaseClient MySqlClient, Boolean NotifyUsers) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Game\Catalog\CatalogManager.cs:line 99
+   at Snowlight.Game.Catalog.CatalogManager.Initialize(SqlDatabaseClient MySqlClient) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Game\Catalog\CatalogManager.cs:line 79
+   at Snowlight.Program.Main(String[] args) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Program.cs:line 125[5:06 AM] Cannot proceed; press any key to stop the server.

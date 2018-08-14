@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD5288B5-BFDC-4ADA-ACC2-3923795F46FA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Boombang</RootNamespace>
+    <AssemblyName>Boombang_C</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="database\database.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="database\databaseException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="database\databaseManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="database\databaseServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="database\dataClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="database\IDataObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="encoding\conversion.cs" />
+    <Compile Include="Environment.cs" />
+    <Compile Include="game\Boombang.cs" />
+    <Compile Include="game\bpad\friends.cs" />
+    <Compile Include="game\bpad\bpadManager.cs" />
+    <Compile Include="game\catalog\catalogParser.cs" />
+    <Compile Include="game\handlers\areas.cs" />
+    <Compile Include="game\handlers\bpad.cs" />
+    <Compile Include="game\handlers\catalogo.cs" />
+    <Compile Include="game\handlers\flowerpower.cs" />
+    <Compile Include="game\handlers\login.cs" />
+    <Compile Include="game\handlers\ping.cs" />
+    <Compile Include="game\scenario\caminar\parseWalk.cs" />
+    <Compile Include="game\scenario\dataScenario.cs" />
+    <Compile Include="game\scenario\managerScenario.cs" />
+    <Compile Include="game\scenario\scenarioHandler.cs" />
+    <Compile Include="game\scenario\scenarioInstance.cs" />
+    <Compile Include="game\scenario\scenarioInteractor.cs" />
+    <Compile Include="game\session\mainHandler.cs" />
+    <Compile Include="game\session\sessionHandler.cs" />
+    <Compile Include="game\session\sessionManager.cs" />
+    <Compile Include="game\scenario\scenarioUser.cs" />
+    <Compile Include="game\user\user.cs" />
+    <Compile Include="game\user\userManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sockets\connection.cs" />
+    <Compile Include="sockets\listener.cs" />
+    <Compile Include="sockets\manager.cs" />
+    <Compile Include="sockets\messages\client.cs" />
+    <Compile Include="sockets\messages\server.cs" />
+    <Compile Include="utils\frameTime.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

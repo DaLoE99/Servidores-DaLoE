@@ -1,0 +1,37 @@
+## Core translations (initialization and basics)
+core.init.cmdarg=Command line argument: %0%
+core.init.mysql=Bezig met het opstarten van de MySQL beheerder...
+core.init.net=Bezig met het opzetten van de netwerk luisteraar op poort %0%...
+core.init.dbcleanup=Database statistieken en tellers worden teruggezet...
+core.init.game=Bezig met het opstarten van spelcomponenten...
+core.init.error.details=Er is een fout opgetreden tijdens het opstarten van Snowlight: %0%<br>%1%
+core.init.error.pressanykey=Kan niet verder gaan; druk op een toets om de server te sluiten.
+core.init.ok=Snowlight is succesvol opgestart (%0% seconden). Klaar voor verbindingen.
+core.init.ok.cmdinfo=Druk op de ENTER toets om commandos in te voeren. Sluit af met het 'STOP' commando.
+core.uninit=Bezig met het afsluiten van Snowlight...
+core.input.error='%0%' is niet herkend als een geldig commando.
+
+## Commands
+command.commands.info=De volgende commando's zijn beschikbaar voor gebruikers
+command.online=Er zijn momenteel %0% gebruiker(s) online:
+command.updatecatalog.success=De catalogus is bijgewerkt
+command.invalidsyntax=Foute invoer
+command.targetuser=Doelgebruiker
+command.cannotproceedcmd=is offline of kan niet verwijderd worden.
+command.cannotproceedcmd2=is offline, niet in een kamer, of kan niet verwijderd worden.
+command.kick.success=Je bent uit de kamer verwijderd door een stafflid.
+command.roomunmute.success=Deze kamer is niet langer gedempt.
+command.roomunmute.error=Deze kamer is niet gedempt!
+command.roommute.success=Deze kamer is nu gedempt.
+command.roommute.error=Deze kamer is al gedempt!
+command.cannotproceedcmd3=bestaat niet of is niet online.
+command.unmute.error=is niet gedempt!
+command.unmute.sucess=Je bent niet langer gedempt. Herlaad de kamer.
+command.unmute.sucess2=is niet langer gedempt.
+command.mute.error=Je kunt gebruikers maximaal één uur dempen.
+command.cannotproceedcmd4=bestaat niet, is niet online, of kan niet gedempt worden.
+command.mute.sucess.part1=Gebruiker
+command.mute.sucess.part2=is succesvol gedempt gedurende
+command.mute.sucess.part3=seconden.
+command.emptyinv.sucess=Je inventaris is successvol geleegd.
+command.pickall.error=Je hebt niet de benodigde rechten om pickall uit te voeren.

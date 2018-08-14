@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E5C151A-13D6-44DF-BDB3-D543CFAA0257}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BoomBang_RetroServer</RootNamespace>
+    <AssemblyName>BoomBang RetroServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\Desktop\ordena\Retros\3\BoomBang\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\ConfigurationManager.cs" />
+    <Compile Include="Database\DatabaseClient.cs" />
+    <Compile Include="Database\DatabaseManager.cs" />
+    <Compile Include="Game\Chests\ChestData.cs" />
+    <Compile Include="Game\Chests\ChestFunctions.cs" />
+    <Compile Include="Game\Chests\ChestManager.cs" />
+    <Compile Include="Game\Handlers\Area.cs" />
+    <Compile Include="Game\Handlers\BPad.cs" />
+    <Compile Include="Game\Handlers\Catalog.cs" />
+    <Compile Include="Game\Handlers\FlowerPower.cs" />
+    <Compile Include="Game\Handlers\ItemsFunctions.cs" />
+    <Compile Include="Game\Handlers\Login.cs" />
+    <Compile Include="Game\Handlers\Ping.cs" />
+    <Compile Include="Game\Handlers\Space.cs" />
+    <Compile Include="Game\Items\CatalogGroup.cs" />
+    <Compile Include="Game\Items\CatalogItem.cs" />
+    <Compile Include="Game\Items\CatalogManager.cs" />
+    <Compile Include="Game\Items\Furni.cs" />
+    <Compile Include="Game\Items\FurniGroup.cs" />
+    <Compile Include="Game\Items\Furnil.cs" />
+    <Compile Include="Game\Spaces\Areas\AreaData.cs" />
+    <Compile Include="Game\Spaces\Areas\AreaGroup.cs" />
+    <Compile Include="Game\Spaces\Areas\AreaInstance.cs" />
+    <Compile Include="Game\Spaces\Islas\IslaData.cs" />
+    <Compile Include="Game\Spaces\Islas\IslaGroup.cs" />
+    <Compile Include="Game\Spaces\Islas\IslaInstance.cs" />
+    <Compile Include="Game\Spaces\Map.cs" />
+    <Compile Include="Game\Spaces\PathFinding.cs" />
+    <Compile Include="Game\Spaces\Salas\Sala.cs" />
+    <Compile Include="Game\Spaces\Salas\SalaData.cs" />
+    <Compile Include="Game\Spaces\Salas\SalaGroup.cs" />
+    <Compile Include="Game\Spaces\Salas\SalaInstance.cs" />
+    <Compile Include="Game\Spaces\Salas\SalaManager.cs" />
+    <Compile Include="Game\Spaces\SpacesManager.cs" />
+    <Compile Include="Game\Users\Ban.cs" />
+    <Compile Include="Game\Users\SpaceUser.cs" />
+    <Compile Include="Game\Users\User.cs" />
+    <Compile Include="Game\Users\UserManager.cs" />
+    <Compile Include="Input.cs" />
+    <Compile Include="Output.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sessions\Handler.cs" />
+    <Compile Include="Sessions\Invoker.cs" />
+    <Compile Include="Sessions\Session.cs" />
+    <Compile Include="Sessions\SessionsManager.cs" />
+    <Compile Include="Sockets\Messages\ClientMessage.cs" />
+    <Compile Include="Sockets\Messages\ServerMessage.cs" />
+    <Compile Include="Sockets\SocketManager.cs" />
+    <Compile Include="Utils\Encoding.cs" />
+    <Compile Include="Utils\Encryption.cs" />
+    <Compile Include="Utils\InputFilter.cs" />
+    <Compile Include="Utils\Point.cs" />
+    <Compile Include="Utils\Time.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Game\BPad\" />
+    <Folder Include="Game\News\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

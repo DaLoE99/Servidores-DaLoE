@@ -1,0 +1,6 @@
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\bin\Release\BoomBang.exe
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\bin\Release\BoomBang.pdb
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\bin\Release\MySql.Data.dll
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.exe
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.pdb

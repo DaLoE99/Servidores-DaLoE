@@ -1,0 +1,327 @@
+/*
+MySQL Backup
+Source Server Version: 5.1.30
+Source Database: boombang
+Date: 6/28/2013 06:21:38
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+--  Table structure for `baneos`
+-- ----------------------------
+DROP TABLE IF EXISTS `baneos`;
+CREATE TABLE `baneos` (
+  `id_usuario` int(11) unsigned NOT NULL,
+  `tipo_baneo` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '0 = ''Baneo''; 1 = ''Desactivado (ban)''; 2 = ''Desactivado (propio)''',
+  `detalles` varchar(500) NOT NULL DEFAULT '',
+  `timestamp` double(14,0) NOT NULL,
+  `timestampex` double(14,0) NOT NULL,
+  `moderador` varchar(30) NOT NULL,
+  `direccion_ip` varchar(16) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `catalogo_objetos`
+-- ----------------------------
+DROP TABLE IF EXISTS `catalogo_objetos`;
+CREATE TABLE `catalogo_objetos` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_base` varchar(255) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(150) NOT NULL,
+  `pagina_catalogo` int(11) NOT NULL,
+  `precio_oro` int(11) NOT NULL,
+  `precio_plata` int(11) NOT NULL,
+  `color` varchar(100) NOT NULL,
+  `color_servidor` varchar(150) NOT NULL,
+  `color_partes` varchar(150) NOT NULL,
+  `color_partes_servidor` varchar(150) NOT NULL,
+  `parte_1` varchar(15) NOT NULL,
+  `parte_2` varchar(15) NOT NULL,
+  `parte_3` varchar(15) NOT NULL,
+  `parte_4` varchar(15) NOT NULL,
+  `tam_1` double NOT NULL,
+  `tam_2` double NOT NULL,
+  `tam_3` double NOT NULL,
+  `tipo` int(2) unsigned NOT NULL DEFAULT '0',
+  `tam_relleno` int(2) unsigned NOT NULL DEFAULT '1',
+  `ubicacion` int(5) unsigned NOT NULL DEFAULT '1',
+  `tipo_rare` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '0 = Normal; 1 = Rare; 2 = Muy Rare; 3 = Único;',
+  `intercambiable` int(1) unsigned NOT NULL DEFAULT '1',
+  `sizable` int(1) unsigned NOT NULL DEFAULT '0',
+  `vip` int(1) unsigned NOT NULL DEFAULT '0',
+  `activado` int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `pagina_catalogo` (`pagina_catalogo`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `escenarios`
+-- ----------------------------
+DROP TABLE IF EXISTS `escenarios`;
+CREATE TABLE `escenarios` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_principal` int(11) unsigned NOT NULL,
+  `ids_secundarias` varchar(60) NOT NULL DEFAULT '',
+  `id_usuario` int(11) unsigned NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `modelo_area` int(3) unsigned NOT NULL DEFAULT '1' COMMENT '1 = belugaBeach, 2 = U.F.O. 3 = Minikong...',
+  `modelo` varchar(255) NOT NULL,
+  `tipo_decoracion` int(11) unsigned NOT NULL,
+  `max_visitantes` int(3) unsigned NOT NULL DEFAULT '12',
+  `es_categoria` int(1) unsigned NOT NULL DEFAULT '1' COMMENT '1 = juego individual, 2 = juego en grupo',
+  `permitir_uppercut` int(1) unsigned NOT NULL DEFAULT '0',
+  `permitir_coco` int(1) unsigned NOT NULL DEFAULT '0',
+  `categoria` int(1) unsigned NOT NULL DEFAULT '1' COMMENT 'Area = 1; Isla = 2; Juego = 3; Casa = 4',
+  `acceso` varchar(15) NOT NULL DEFAULT 'open',
+  `tipo_area` varchar(15) NOT NULL DEFAULT 'area',
+  `lista_verde` text NOT NULL,
+  `lista_negra` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `filtro`
+-- ----------------------------
+DROP TABLE IF EXISTS `filtro`;
+CREATE TABLE `filtro` (
+  `palabra` varchar(30) NOT NULL,
+  `tipo` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '''0'' = Desactivado; ''1'' = Nombre de usuario; ''2'' = Palabra'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `ignorados`
+-- ----------------------------
+DROP TABLE IF EXISTS `ignorados`;
+CREATE TABLE `ignorados` (
+  `id_usuario` int(11) unsigned NOT NULL,
+  `id_ignorada` int(11) unsigned NOT NULL,
+  KEY `id_usuario` (`id_usuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `islas`
+-- ----------------------------
+DROP TABLE IF EXISTS `islas`;
+CREATE TABLE `islas` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_parent` int(11) unsigned NOT NULL DEFAULT '0',
+  `nombre` varchar(30) NOT NULL,
+  `descripcion` varchar(250) NOT NULL DEFAULT 'Añade una descripción... :)',
+  `acceso` varchar(50) NOT NULL DEFAULT 'open',
+  `password` varchar(25) NOT NULL DEFAULT '',
+  `tipo_area` varchar(15) NOT NULL DEFAULT '1',
+  `modelo_area` int(4) unsigned NOT NULL DEFAULT '1',
+  `id_area1` int(11) NOT NULL DEFAULT '-1',
+  `id_area2` int(11) NOT NULL DEFAULT '-1',
+  `id_area3` int(11) NOT NULL DEFAULT '-1',
+  `id_area4` int(11) NOT NULL DEFAULT '-1',
+  `id_area5` int(11) NOT NULL DEFAULT '-1',
+  `id_usuario` int(11) NOT NULL,
+  `permitir_uppercuts` tinyint(1) NOT NULL DEFAULT '0',
+  `permitir_cocos` tinyint(1) NOT NULL DEFAULT '1',
+  `lista_verde` text NOT NULL,
+  `lista_negra` text NOT NULL,
+  `color_rgb` text,
+  `color_server` text,
+  `visitantes` int(11) unsigned NOT NULL DEFAULT '0',
+  `timestamp` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `nombre` (`nombre`),
+  KEY `id_usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `laptop_amigos`
+-- ----------------------------
+DROP TABLE IF EXISTS `laptop_amigos`;
+CREATE TABLE `laptop_amigos` (
+  `id_usuario` int(11) unsigned NOT NULL,
+  `id_amigo` int(11) unsigned NOT NULL,
+  `aceptado` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `laptop_mensajes`
+-- ----------------------------
+DROP TABLE IF EXISTS `laptop_mensajes`;
+CREATE TABLE `laptop_mensajes` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `emisor` int(11) unsigned NOT NULL,
+  `receptor` int(11) unsigned NOT NULL,
+  `contenido` text NOT NULL,
+  `timestamp` double(11,0) NOT NULL,
+  `color` int(2) unsigned NOT NULL DEFAULT '0' COMMENT '0 = normal; 1 = moderador; 2 = BoomBang Team; 3 = Regalos; 4 = Misiones completadas',
+  `leido` int(1) unsigned NOT NULL DEFAULT '0',
+  `general` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=122 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `modelos`
+-- ----------------------------
+DROP TABLE IF EXISTS `modelos`;
+CREATE TABLE `modelos` (
+  `id` varchar(30) NOT NULL,
+  `mapa_bits` varchar(10000) NOT NULL,
+  `pos_x` int(3) NOT NULL DEFAULT '0',
+  `pos_y` int(3) NOT NULL DEFAULT '0',
+  `pos_z` int(3) NOT NULL DEFAULT '0',
+  `rotacion` int(3) NOT NULL DEFAULT '0',
+  `tipo` varchar(10) NOT NULL DEFAULT 'area',
+  `max_usuarios` int(3) NOT NULL DEFAULT '25',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `objetos_comprados`
+-- ----------------------------
+DROP TABLE IF EXISTS `objetos_comprados`;
+CREATE TABLE `objetos_comprados` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_objeto` int(11) NOT NULL,
+  `id_area` int(11) NOT NULL DEFAULT '0',
+  `id_usuario` int(11) NOT NULL,
+  `size` varchar(5) NOT NULL DEFAULT 'tam_n',
+  `color` varchar(60) NOT NULL,
+  `pivotes_ocupa` int(11) NOT NULL,
+  `pos_x` int(11) NOT NULL DEFAULT '0',
+  `pos_y` int(11) NOT NULL DEFAULT '0',
+  `pos_z` int(11) NOT NULL DEFAULT '0',
+  `data_extra` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_area` (`id_area`),
+  KEY `id_usuario` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `objetos_ranking`
+-- ----------------------------
+DROP TABLE IF EXISTS `objetos_ranking`;
+CREATE TABLE `objetos_ranking` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_objeto` varchar(255) NOT NULL,
+  `nombre_mostrar` varchar(255) NOT NULL,
+  `area_especifica` int(10) unsigned NOT NULL DEFAULT '0',
+  `id_objeto` int(10) unsigned NOT NULL DEFAULT '1' COMMENT 'Id del objeto que cae - ''1'' = Cofre oro, ''2'' = Cofre plata...',
+  `id_ranking` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Id de ranking - ''0'' = Sin ranking, ''1'' = Pascuas...',
+  `creditos_oro` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Remuneración en créditos de oro.',
+  `creditos_plata` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Remuneración en créditos de plata.',
+  `id_premio` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Remuneración en Objetos, introducir ID de objeto a dar.',
+  `tipo_caida` int(1) unsigned NOT NULL COMMENT 'Tipo de caida - ''1'' = normal; ''2'' = flotando; ''3'' = Cielo estático',
+  `activado` int(1) unsigned NOT NULL DEFAULT '0',
+  `tipo_captura` int(1) unsigned NOT NULL DEFAULT '1' COMMENT '''1'' = Click; ''2'' = Situandose encima',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `rankings`
+-- ----------------------------
+DROP TABLE IF EXISTS `rankings`;
+CREATE TABLE `rankings` (
+  `usuario` int(11) unsigned NOT NULL,
+  `puntos_0` int(11) NOT NULL DEFAULT '0',
+  `puntos_1` int(11) NOT NULL DEFAULT '0',
+  `puntos_2` int(11) NOT NULL DEFAULT '0',
+  `puntos_3` int(11) NOT NULL DEFAULT '0',
+  `puntos_4` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`usuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `server_status`
+-- ----------------------------
+DROP TABLE IF EXISTS `server_status`;
+CREATE TABLE `server_status` (
+  `usuarios_online` int(11) NOT NULL DEFAULT '0',
+  `areas_activas` int(11) NOT NULL DEFAULT '0',
+  `servidor_online` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = Offline, 1 = Online'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `site_noticias`
+-- ----------------------------
+DROP TABLE IF EXISTS `site_noticias`;
+CREATE TABLE `site_noticias` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `fecha` double NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `contenido` text NOT NULL,
+  `imagen` text NOT NULL,
+  `lenguaje` varchar(255) NOT NULL DEFAULT 'es-ES',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `usuarios`
+-- ----------------------------
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE `usuarios` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(13) NOT NULL,
+  `password` varchar(28) NOT NULL,
+  `email` varchar(40) NOT NULL DEFAULT 'default@jairo34.es',
+  `edad` int(2) unsigned NOT NULL DEFAULT '14',
+  `tiempo_registrado` int(3) unsigned NOT NULL,
+  `pais` varchar(30) NOT NULL DEFAULT 'Alemania',
+  `ciudad` varchar(30) NOT NULL DEFAULT 'BoomBang',
+  `ip_registro` varchar(16) NOT NULL DEFAULT '127.0.0.1',
+  `ip_actual` varchar(16) NOT NULL DEFAULT '127.0.0.1',
+  `ultimo_login` double(11,0) unsigned NOT NULL,
+  `moderador` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '0 = No es moderador, 1 = Si es moderador',
+  `vip` int(1) unsigned NOT NULL,
+  `tipo_avatar` int(2) unsigned NOT NULL,
+  `colores_avatar` varchar(42) NOT NULL DEFAULT 'FFD797CC5806FFFFFF6633000066CCFFFFFF000000',
+  `bocadillo` varchar(30) NOT NULL DEFAULT 'Hola! :)',
+  `hobby_1` varchar(15) NOT NULL DEFAULT 'Vacío',
+  `hobby_2` varchar(15) NOT NULL DEFAULT 'Vacío',
+  `hobby_3` varchar(15) NOT NULL DEFAULT 'Vacío',
+  `deseo_1` varchar(15) NOT NULL DEFAULT 'Vacío',
+  `deseo_2` varchar(15) NOT NULL DEFAULT 'Vacío',
+  `deseo_3` varchar(15) NOT NULL DEFAULT 'Vacío',
+  `votos_simpatico` int(2) unsigned NOT NULL DEFAULT '50',
+  `votos_sexy` int(2) unsigned NOT NULL DEFAULT '50',
+  `votos_legal` int(2) unsigned NOT NULL DEFAULT '50',
+  `creditos_oro` int(11) NOT NULL DEFAULT '3000',
+  `creditos_plata` int(11) NOT NULL DEFAULT '0',
+  `besos_enviados` int(11) NOT NULL DEFAULT '0',
+  `cocteles_enviados` int(11) NOT NULL DEFAULT '0',
+  `flores_enviadas` int(11) NOT NULL DEFAULT '0',
+  `uppercuts_enviados` int(11) NOT NULL DEFAULT '0',
+  `cocos_enviados` int(11) NOT NULL DEFAULT '0',
+  `besos_recibidos` int(11) NOT NULL DEFAULT '0',
+  `cocteles_recibidos` int(11) NOT NULL DEFAULT '0',
+  `flores_recibidas` int(11) NOT NULL DEFAULT '0',
+  `uppercuts_recibidos` int(11) NOT NULL DEFAULT '0',
+  `cocos_recibidos` int(11) NOT NULL DEFAULT '0',
+  `rings_ganados` int(11) unsigned NOT NULL DEFAULT '0',
+  `cocos_ganados` int(11) unsigned NOT NULL DEFAULT '0',
+  `nivel_ninja` int(11) unsigned NOT NULL DEFAULT '0',
+  `timestamp_monedas` double(11,0) NOT NULL,
+  `cambios` int(1) unsigned NOT NULL DEFAULT '0',
+  `nivel_ring` int(3) unsigned NOT NULL DEFAULT '0',
+  `nivel_cocos` int(3) unsigned NOT NULL DEFAULT '0',
+  `xat_staff` int(1) NOT NULL DEFAULT '0',
+  `designer` int(1) NOT NULL DEFAULT '0',
+  `vip_6` int(1) NOT NULL DEFAULT '0',
+  `training` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `usuario` (`usuario`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=705 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Records 
+-- ----------------------------
+INSERT INTO `catalogo_objetos` VALUES ('1','gigantegg3','Huevo Bronce','Huevo milenario, hecho de tierno chocolate Lindor, no dejes que se derrita!','1','100000','-1','','','','','','','','','1','0','0','1','0','0','4','2','1','1','1');
+INSERT INTO `escenarios` VALUES ('1','0','24,25','0','Beluga Beach','','','1','beluga','0','12','1','1','1','1','open','area','',''), ('2','0','26,27','0','U.F.O.','','','2','ufo','0','12','1','1','1','1','open','area','',''), ('3','0','28,29','0','MiniKong','','','3','minikong','0','12','1','1','1','1','open','area','',''), ('4','0','30,31','0','BaoBab','','','4','baobab','0','12','1','1','1','1','open','area','',''), ('5','0','32,33','0','Media Noche','','','5','medianoche','0','12','1','1','1','1','open','area','',''), ('6','0','34,35','0','Vértigo','','','6','vertigo','0','12','1','1','1','1','open','area','',''), ('7','0','36,37','0','IceAge','','','7','iceage','0','12','1','1','1','1','open','area','',''), ('8','0','38,39','0','Aquarium','','','8','aquarium','0','12','1','1','1','1','open','area','',''), ('9','0','40,41','0','Igloo','','','9','igloo','0','12','1','1','1','1','open','area','',''), ('10','0','42,43','0','Jungle Love','','','10','junglelove','0','8','1','1','1','1','open','area','',''), ('11','0','44,45','0','Ryuu','','','11','ryuu','0','12','1','1','1','1','open','area','',''), ('12','0','46,47','0','Lapoya','','','12','laponia','0','12','1','1','1','1','open','area','',''), ('13','0','48,49','0','Ciénaga','','','13','cienaga','0','12','1','1','1','1','open','area','',''), ('14','0','50,51','0','XiónMau','','','14','xiongmao','0','12','1','1','1','1','open','area','',''), ('15','0','52,53','0','Tarántula','','','15','tarantula','0','12','1','1','1','1','open','area','',''), ('16','0','54,55','0','SkatePark','','','16','skatepark','0','12','1','1','1','1','open','area','',''), ('17','0','56,57','0','Pengüin Mafia','','','17','penguinmafia','0','12','1','1','1','1','open','area','',''), ('18','0','58,59','0','DinoLand','','','18','dinoland','0','12','1','1','1','1','open','area','',''), ('19','0','60,61','0','Area51','','','19','area51','0','20','1','1','1','1','open','area','',''), ('20','0','62,63','0','Ring','','','102','ring','0','12','1','1','1','3','open','area','',''), ('21','0','64,65','0','Sendero Oculto','','','103','sendero','0','12','1','1','1','3','open','area','',''), ('22','0','66,67','0','Cocos Locos','','','104','cocos','0','12','1','1','1','3','open','area','',''), ('23','0','68,69','0','Camino Ninja','','','105','shuriken','0','12','1','1','1','3','open','area','',''), ('24','1','','0','Beluga Beach 1','','','1','beluga','0','12','0','1','1','1','open','area','',''), ('25','1','','0','Beluga Beach 2','','','1','beluga','0','12','0','1','1','1','open','area','',''), ('26','2','','0','U.F.O. 1','','','2','ufo','0','12','0','1','1','1','open','area','',''), ('27','2','','0','U.F.O 2','','','2','ufo','0','12','0','1','1','1','open','area','',''), ('28','3','','0','MiniKong 1','','','3','minikong','0','12','0','1','1','1','open','area','',''), ('29','3','','0','MiniKong 2','','','3','minikong','0','12','0','1','1','1','open','area','',''), ('30','4','','0','BaoBab 1','','','4','baobab','0','12','0','1','1','1','open','area','',''), ('31','4','','0','BaoBab 2','','','4','baobab','0','12','0','1','1','1','open','area','',''), ('32','5','','0','Media Noche 1','','','5','medianoche','0','12','0','1','1','1','open','area','',''), ('33','5','','0','Media Noche 2','','','5','medianoche','0','12','0','1','1','1','open','area','',''), ('34','6','','0','Vértigo 1','','','6','vertigo','0','12','0','1','1','1','open','area','',''), ('35','6','','0','Vértigo 2','','','6','vertigo','0','12','0','1','1','1','open','area','',''), ('36','7','','0','IceAge 1','','','7','iceage','0','12','0','1','1','1','open','area','',''), ('37','7','','0','IceAge 2','','','7','iceage','0','12','0','1','1','1','open','area','',''), ('38','8','','0','Aquarium 1','','','8','aquarium','0','12','0','1','1','1','open','area','',''), ('39','8','','0','Aquarium 2','','','8','aquarium','0','12','0','1','1','1','open','area','',''), ('40','9','','0','Igloo 1','','','9','igloo','0','12','0','1','1','1','open','area','',''), ('41','9','','0','Igloo 2','','','9','igloo','0','12','0','1','1','1','open','area','',''), ('42','10','','0','Jungle Love 1','','','10','junglelove','0','8','0','1','1','1','open','area','',''), ('43','10','','0','Jungle Love 2','','','10','junglelove','0','8','0','1','1','1','open','area','',''), ('44','11','','0','Ryuu 1','','','11','ryuu','0','12','0','1','1','1','open','area','',''), ('45','11','','0','Ryuu 2','','','11','ryuu','0','12','0','1','1','1','open','area','',''), ('46','12','','0','Lapoya 1','','','12','laponia','0','12','0','1','1','1','open','area','',''), ('47','12','','0','Lapoya 2','','','12','laponia','0','12','0','1','1','1','open','area','',''), ('48','13','','0','Ciénaga 1','','','13','cienaga','0','12','0','1','1','1','open','area','',''), ('49','13','','0','Ciénaga 2','','','13','cienaga','0','12','0','1','1','1','open','area','',''), ('50','14','','0','XióngMau 1','','','14','xiongmao','0','12','0','1','1','1','open','area','',''), ('51','14','','0','XióngMau 2','','','14','xiongmao','0','12','0','1','1','1','open','area','',''), ('52','15','','0','Tarántula 1','','','15','tarantula','0','12','0','1','1','1','open','area','',''), ('53','15','','0','Tarántula 2','','','15','tarantula','0','12','0','1','1','1','open','area','',''), ('54','16','','0','SkatePark 1','','','16','skatepark','0','12','0','1','1','1','open','area','',''), ('55','16','','0','SkatePark 2','','','16','skatepark','0','12','0','1','1','1','open','area','',''), ('56','17','','0','Pengüin Mafia 1','','','17','penguinmafia','0','12','0','1','1','1','open','area','',''), ('57','17','','0','Pengüin Mafia 2','','','17','penguinmafia','0','12','0','1','1','1','open','area','',''), ('58','18','','0','DinoLand 1','','','18','dinoland','0','12','0','1','1','1','open','area','',''), ('59','18','','0','DinoLand 2','','','18','dinoland','0','12','0','1','1','1','open','area','',''), ('60','19','','0','Area51 1','','','19','area51','0','20','0','1','1','1','open','area','',''), ('61','19','','0','Area51 2','','','19','area51','0','20','0','1','1','1','open','area','',''), ('62','20','','0','Ring 1','','','102','ring','0','12','0','1','1','3','open','area','',''), ('63','20','','0','Ring 2','','','102','ring','0','12','0','1','1','3','open','area','',''), ('64','21','','0','Sendero Oculto 1','','','103','sendero','0','12','0','1','1','3','open','area','',''), ('65','21','','0','Sendero Oculto 2','','','103','sendero','0','12','0','1','1','3','open','area','',''), ('66','22','','0','Cocos Locos 1','','','104','cocos','0','12','0','1','1','3','open','area','',''), ('67','22','','0','Cocos Locos 2','','','104','cocos','0','12','0','1','1','3','open','area','',''), ('68','23','','0','Camino Ninja 1','','','105','shuriken','0','12','0','1','1','3','open','area','',''), ('69','23','','0','Camino Ninja 2','','','105','shuriken','0','12','0','1','1','3','open','area','','');
+INSERT INTO `filtro` VALUES ('Tim','1'), ('Kum','1'), ('Eva','1'), ('Marti','1'), ('BeBe','1'), ('Ikku','1'), ('Ponder','1'), ('Tigerton','1'), ('Wolfmother','1'), ('Luz','1'), ('Micaelo','1'), ('WhitePixel','1');
+INSERT INTO `islas` VALUES ('34','0','grantas','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','445','0','1','','',NULL,NULL,'0','0'), ('35','0','khrtfk','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','483','0','1','','',NULL,NULL,'0','0'), ('36','0','asfgaafg','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','492','0','1','','',NULL,NULL,'0','0'), ('37','0','noobs only','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','526','0','1','','',NULL,NULL,'0','0'), ('38','0','uhygyg','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','551','0','1','','',NULL,NULL,'0','0'), ('39','0','colegio bb area 2','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','554','0','1','','',NULL,NULL,'0','0'), ('40','0','Jaime','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','423','0','1','','',NULL,NULL,'0','0'), ('41','0','.','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','383','0','1','','',NULL,NULL,'0','0'), ('42','0','Luigias','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','571','0','1','','',NULL,NULL,'0','0'), ('43','0','Xd','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','541','0','1','','',NULL,NULL,'0','0'), ('44','0','levimax','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','448','0','1','','',NULL,NULL,'0','0'), ('45','0','1','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','595','0','1','','',NULL,NULL,'0','0'), ('46','0','NNJ','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','369','0','1','','',NULL,NULL,'0','0'), ('47','0','Kadabra','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','635','0','1','','',NULL,NULL,'0','0'), ('48','0','bgefcgvidsfe','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','663','0','1','','',NULL,NULL,'0','0'), ('49','0','.l.','Añade una descripción... :)','open','','1','5','-1','-1','-1','-1','-1','678','0','1','','',NULL,NULL,'0','0'), ('50','0','3r3tf','Añade una descripción... :)','open','','1','1','-1','-1','-1','-1','-1','678','0','1','','',NULL,NULL,'0','0');
+INSERT INTO `modelos` VALUES ('beluga','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111110111111111111111111\r\n1111111100001111111111111111\r\n1111111000000001111111111111\r\n1111110000000000111111111111\r\n1111100000000000011111111111\r\n1111000000000000001111111111\r\n1110000000000000000111111111\r\n1110000000000000011111111111\r\n1111000000000000011111111111\r\n1111100000000000001111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','11','4','4','area','12'), ('ufo','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111110011111110111111111111\r\n1111100000011000011111111111\r\n1111000000000000001111111111\r\n1111100000000000000111111111\r\n1110000000000000000011111111\r\n1111000000000000000011111111\r\n1111100000000100000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000000111111111111\r\n1111111111000001111111111111\r\n1111111111100011111111111111\r\n1111111111110111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','12','12','4','4','area','12'), ('minikong','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111100111111111111111\r\n1111111100000011111111111111\r\n1111111000000001111111111111\r\n1111110000000000111111111111\r\n1111100000000000011111111111\r\n1111111000110000001111111111\r\n1111100000010000000111111111\r\n1111100000000000000011111111\r\n1111100000000000000011111111\r\n1111100000000010000111111111\r\n1111110000001100001111111111\r\n1111111000111000011111111111\r\n1111111100011000111111111111\r\n1111111110000000111111111111\r\n1111111111000001111111111111\r\n1111111111101111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','8','4','4','area','12'), ('baobab','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111000000001111111111111\r\n1111110000000000111111111111\r\n1111100000000000011111111111\r\n1111110000000000001111111111\r\n1111110000000010000111111111\r\n1111110000001111100111111111\r\n1111110000001111111111111111\r\n1111110000001111111111111111\r\n1111110000001111111111111111\r\n1111111000000111111111111111\r\n1111111100000111111111111111\r\n1111111110000011111111111111\r\n1111111111000001111111111111\r\n1111111111100011111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','8','10','4','4','area','12'), ('medianoche','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111001111111111111111\r\n1111111110000111111111111111\r\n1111111100000011111111111111\r\n1111111000000001111111111111\r\n1111110000000000111111111111\r\n1111100000000110011111111111\r\n1111000000000110001111111111\r\n1110000000000000000111111111\r\n1110000000000000000011111111\r\n1111000000000000000011111111\r\n1111100000000000000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000011111111111\r\n1111111110000000111111111111\r\n1111111111000001111111111111\r\n1111111111100011111111111111\r\n1111111111110111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','10','10','4','4','area','12'), ('vertigo','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111110111111111111111\r\n1111111111000011111111111111\r\n1111111111100001111111111111\r\n1111110001111100111111111111\r\n1111100000011110011111111111\r\n1111000000011110001111111111\r\n1110000000000100001111111111\r\n1111000100000000000111111111\r\n1111111111000000000111111111\r\n1111111111111000000111111111\r\n1111111111111000000111111111\r\n1111111111111100001111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','8','10','4','4','area','12'), ('iceage','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111001111111111111111\r\n1111111110010111111111111111\r\n1111111110011011111111111111\r\n1111111100001001111111111111\r\n1111111100000000111111111111\r\n1111111100000000011111111111\r\n1111111100000000001111111111\r\n1111111000000000001111111111\r\n1111111000000000011111111111\r\n1111110000000000011111111111\r\n1111100000000000011111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000011111111111\r\n1111111110000000111111111111\r\n1111111111000001111111111111\r\n1111111111100011111111111111\r\n1111111111110111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','8','10','4','4','area','12'), ('aquarium','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111100011111111111111\r\n1111111000000001111111111111\r\n1111111000000000111111111111\r\n1111110000000000011111111111\r\n1111110000000000011111111111\r\n1111111000000000011111111111\r\n1111111000000000111111111111\r\n1111111100000001111111111111\r\n1111111110000001111111111111\r\n1111111111000001111111111111\r\n1111111111110001111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','11','4','4','area','11'), ('igloo','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111110111111111111111111\r\n1111111100111111111111111111\r\n1111111000110011111111111111\r\n1111110000000001111111111111\r\n1111100000000000111111111111\r\n1111000000000000011111111111\r\n1110000000000000001111111111\r\n1110010000000000000111111111\r\n1111010000000001000111111111\r\n1111101000000000001111111111\r\n1111110000000000001111111111\r\n1111111000000000001111111111\r\n1111111100000000011111111111\r\n1111111110000000111111111111\r\n1111111111000001111111111111\r\n1111111111100011111111111111\r\n1111111111110111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','11','4','4','area','12'), ('junglelove','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111110001111111111111111\r\n1111111110000111111111111111\r\n1111111110000011111111111111\r\n1111111111000001111111111111\r\n1111111111100001111111111111\r\n1111111111110001111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','9','12','4','4','area','8'), ('ryuu','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111011111111111111111\r\n1111111110101111111111111111\r\n1111111100010111111111111111\r\n1111111010110011111111111111\r\n1111110110010001111111111111\r\n1111101011000000111111111111\r\n1111100001000000011111111111\r\n1111000000000000101111111111\r\n1111100000000000000111111111\r\n1111110000000000000011111111\r\n1111110000000000000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111001111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','8','12','4','4','area','12'), ('laponia','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111110111111111111111111\r\n1111111110000111111111111111\r\n1111111111000111111111111111\r\n1111111111000001111111111111\r\n1111111111000000111111111111\r\n1111111110000000001111111111\r\n1111110000000000000111111111\r\n1111100000000000000011111111\r\n1111100000000000000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','12','4','4','area','12'), ('cienaga','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111110011111111111111111\r\n1111111100001111111111111111\r\n1111111000000011111111111111\r\n1111110000000001111111111111\r\n1111110000000001111111111111\r\n1111110000000000111111111111\r\n1111100000000000111111111111\r\n1111100000000000111111111111\r\n1111100000000000011111111111\r\n1111100000000000001111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','13','10','4','4','area','12'), ('xiongmao','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111110011111111111111111\r\n1111111100001111111111111111\r\n1111111000000111111111111111\r\n1111110000011011111111111111\r\n1111100100001001111111111111\r\n1111000110000000111111111111\r\n1111000010000000011111111111\r\n1111000000000000001111111111\r\n1111000000000000000111111111\r\n1111100000000000000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','8','4','4','area','12'), ('tarantula','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111001111111111111111\r\n1111111110000111111111111111\r\n1111111100000011111111111111\r\n1111111000000001111111111111\r\n1111110000000000111111111111\r\n1111100000000000011111111111\r\n1111000000000000001111111111\r\n1110000000000000000111111111\r\n1110000000000000000011111111\r\n1111000000000000000011111111\r\n1111100000000000000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','11','4','4','area','12'), ('skatepark','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111001111111111111111\r\n1111111111001111111111111111\r\n1111110011101111111111111111\r\n1111100000101111111111111111\r\n1111000000001111111111111111\r\n1110000000000111111111111111\r\n1100000000000000001111111111\r\n1110000000000000000111111111\r\n1111000000000000000011111111\r\n1111100000000000000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','11','4','4','area','12'), ('penguinmafia','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111100111111111111111111\r\n1111001000111111111111111111\r\n1110001000111111011111111111\r\n1100000001111101101111111111\r\n1110000000011110000111111111\r\n1111000000001111000011111111\r\n1111100000001111000111111111\r\n1111110000000010001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','7','12','4','4','area','12'), ('dinoland','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111110111111111111111111\r\n1111111100111111111111111111\r\n1111111000010011111111111111\r\n1111110000010001111111111111\r\n1111100000010000111111111111\r\n1111000000000000111111111111\r\n1110000000000000011111111111\r\n1100000000000000001111111111\r\n1110000000000000001111111111\r\n1111000000000000000111111111\r\n1111100000000000000111111111\r\n1111110000000000001111111111\r\n1111111000000000011111111111\r\n1111111100000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111100111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','11','4','4','area','12'), ('area51','11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111100111111111111111111111111111111111111111111\r\n11111111111001111111111111111111111111111111111111111111\r\n11111111110000111111111111111111111111111111111111111111\r\n11111111100000111111111111111111111111111111111111111111\r\n11111111000000111111111111111111111111111111111111111111\r\n11111111000000111111111111111111111111111111111111111111\r\n11111110000000011111111111111111111111111111111111111111\r\n11111110000000001111111111111111111111111111111111111111\r\n11111110000000001111111111100000011111111111111111111111\r\n11111110000000000111111110000000001111111111111111111111\r\n11111100000000000000000000000000000111111111111111111111\r\n11111110000000000000000000000000000111111111111111111111\r\n11111111000000000000000000000000000111111111111111111111\r\n11111111100000000000000000000000000111111111111111111111\r\n11111111110000000000000000000000001111111111111111111111\r\n11111111111000000000000000000000011111111111111111111111\r\n11111111111100000000000000000000111111111111111111111111\r\n11111111111110000000000000000000011111111111111111111111\r\n11111111111111000000000000000000011111111111111111111111\r\n11111111111111100000000000000000011111111111111111111111\r\n11111111111111110000000000000000111111111111111111111111\r\n11111111111111111000000000000001111111111111111111111111\r\n11111111111111111100000000000011111111111111111111111111\r\n11111111111111111110000000000111111111111111111111111111\r\n11111111111111111111000000001111111111111111111111111111\r\n11111111111111111111100000011111111111111111111111111111\r\n11111111111111111111110000111111111111111111111111111111\r\n11111111111111111111111001111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111\r\n11111111111111111111111111111111111111111111111111111111','10','23','4','4','area','22'), ('ring','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111100111111111111111\r\n1111111111000001111111111111\r\n1111111111000000111111111111\r\n1111111111100000011111111111\r\n1111111100000000001111111111\r\n1111111110000010000111111111\r\n1111111111000101000011111111\r\n1111111111101110000001111111\r\n1111111111101100000001111111\r\n1111111111110000000011111111\r\n1111111111111000000111111111\r\n1111111111111100001111111111\r\n1111111111111111011111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','12','4','4','area','12'), ('cocoslocos','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111100111111111111111\r\n1111111111000001111111111111\r\n1111111111000000111111111111\r\n1111111110000000011111111111\r\n1111111100000000001111111111\r\n1111111110000000000111111111\r\n1111111100000000000011111111\r\n1111111000000000000111111111\r\n1111111000000000000111111111\r\n1111111100100000000111111111\r\n1111111111110000001111111111\r\n1111111111100000001111111111\r\n1111111110000000111111111111\r\n1111111111011000111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','12','4','4','area','12'), ('shuriken','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111110001000011111111111111\r\n1111100000000111111111111111\r\n1111100000001111111111111111\r\n1111100000001111111111111111\r\n1111110000000001111111111111\r\n1111111010000000111111111111\r\n1111111111000110111111111111\r\n1111111110000100111111111111\r\n1111111111000000111111111111\r\n1111111111111001111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','12','4','4','area','12'), ('camino','1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111001111111111111111\r\n1111111110000111111111111111\r\n1111111100000011111111111111\r\n1111111000000001111111111111\r\n1111111000000000111111111111\r\n1111111000000000011111111111\r\n1111111000000000001111111111\r\n1111110000000000001111111111\r\n1111110001000000001111111111\r\n1111111011100000011111111111\r\n1111111111000000111111111111\r\n1111111110000001111111111111\r\n1111111111000011111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111\r\n1111111111111111111111111111','11','12','4','4','area','12');
+INSERT INTO `objetos_ranking` VALUES ('1','','cofre de plata','0','2','1','0','0','1','1','1','1'), ('2','cofre_oro','cofre','0','1','0','1000','0','0','1','1','1'), ('3','cofre_oro','cofre','0','1','0','5000','0','0','1','1','1'), ('4','cofre_oro','cofre','0','1','0','250','0','0','1','1','1'), ('5','cofre_oro','cofre','0','1','0','3000','0','0','1','1','1'), ('6','cofre_oro','cofre','0','1','0','200','0','0','1','1','1');
+INSERT INTO `server_status` VALUES ('0','0','2');
+INSERT INTO `site_noticias` VALUES ('1','1316268742','Probando, Probando, uno dos...','Hola,\r\nGracias por usar el servidor de BoomBang FREE.','http://www.boombang.tv/esp/blog/images/clausura.jpg','es-ES');

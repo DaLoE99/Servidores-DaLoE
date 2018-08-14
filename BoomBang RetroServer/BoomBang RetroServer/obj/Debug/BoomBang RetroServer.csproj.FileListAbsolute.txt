@@ -1,0 +1,2 @@
+c:\users\hp\documents\visual studio 2013\Projects\BoomBang RetroServer\BoomBang RetroServer\bin\Debug\BoomBang RetroServer.exe.config
+C:\Users\HP\Documents\Visual Studio 2013\Projects\BoomBang RetroServer\BoomBang RetroServer\obj\Debug\BoomBang RetroServer.csprojResolveAssemblyReference.cache

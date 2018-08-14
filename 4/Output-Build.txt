@@ -1,0 +1,3 @@
+﻿------ Build started: Project: BoomBang, Configuration: Debug x86 ------
+  BoomBang -> C:\Users\admin\Desktop\BoomBang Programming\BoomBang\bin\Debug\BoomBang.exe
+========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========

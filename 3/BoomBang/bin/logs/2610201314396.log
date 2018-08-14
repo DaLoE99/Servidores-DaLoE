@@ -1,0 +1,17 @@
+## Snowlight## Server output log file## sábado, 26 de octubre de 2013 14:39:06[14:39] Initializing Snowlight...[14:39] Initializing MySQL manager...[14:39] Setting up server listener on port 2001...[14:39] Resetting database counters and statistics...[14:39] Intializing game components and workers...[14:39] Could not initialize Snowlight: Table 'boombang.site_noticias' doesn't exist
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   en Snowlight.Storage.SqlDatabaseClient.ExecuteQuerySet(String CommandText) en C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Storage\SqlDatabaseClient.cs:línea 174
+   en Snowlight.Storage.SqlDatabaseClient.ExecuteQueryTable(String CommandText) en C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Storage\SqlDatabaseClient.cs:línea 183
+   en Snowlight.Game.Misc.NewsCacheManager.smethod_0(SqlDatabaseClient sqlDatabaseClient_0) en C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Game\Misc\NewsCacheManager.cs:línea 50
+   en Snowlight.Game.Misc.NewsCacheManager.Initialize(SqlDatabaseClient MySqlClient) en C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Game\Misc\NewsCacheManager.cs:línea 21
+   en Snowlight.Program.Main(String[] args) en C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Program.cs:línea 129[14:39] Cannot proceed; press any key to stop the server.

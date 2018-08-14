@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F7BB0DE-C0AC-4DB9-BC16-C0AF4BCFD9EA}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>BoomBang</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="BoomBang\Communication\Base64Encoding.cs" />
+    <Compile Include="BoomBang\Game\Catalog\CatalogItem.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="BoomBang\Communication\ClientMessage.cs" />
+    <Compile Include="BoomBang\Communication\FlagcodesIn.cs" />
+    <Compile Include="BoomBang\Communication\FlagcodesOut.cs" />
+    <Compile Include="BoomBang\Communication\Incoming\DataRouter.cs" />
+    <Compile Include="BoomBang\Communication\Incoming\ProcessRequestCallback.cs" />
+    <Compile Include="BoomBang\Communication\ItemcodesIn.cs" />
+    <Compile Include="BoomBang\Communication\ItemcodesOut.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\Class0.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\AuthenticationKoComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\AuthenticationOkComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\ConfirmationCatalogComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\ContestInitComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\CreateIslandComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\CreateZoneComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\CharacterCoinsComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\ChatType.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\CheckUsernameComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\EditAvatarComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\FacebookInitComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\FlowerPowerLoadComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\GameDescriptionComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopAcceptFriendComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopDeclineBuddyComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopDeleteFriendComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopFriendListComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopMessageComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopNewFriendComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopRequestNotificationComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopSearchResultComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopUpdate.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopUpdateBuddyComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LaptopUpdateListComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LoadCatalogComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\LoaderAdvertisementComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\ModerationBanComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\NavigatorItemsComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\NavigatorSubItemsComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\NewsContentComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\NewsInitComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\PingComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\PreEnterIslandComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\RegisterComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SilverCoinsTimeLeftComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceCatchItemComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceChatComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceFallingItemComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceFullComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceLatencyTestComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceLoadPrivateSceneComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceLoadPublicSceneComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceObjectListComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpacePricesComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceRemoveItemComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUpdateUserStatistics.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserAcceptInteract.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserActionComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserCancelActionComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserHobbyUpdateComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserMottoUpdateComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserRemovedComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserRotationComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserSendActionComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserSendCoconut.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserSendUppercut.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserVoteUpdateComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserWalkComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\SpaceUserWishUpdateComposer.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\UpdateCoconutColor.cs" />
+    <Compile Include="BoomBang\Communication\Outgoing\UpdateUppercutColor.cs" />
+    <Compile Include="BoomBang\Communication\ResponseCache\ResponseCacheController.cs" />
+    <Compile Include="BoomBang\Communication\ResponseCache\ResponseCacheItem.cs" />
+    <Compile Include="BoomBang\Communication\ServerMessage.cs" />
+    <Compile Include="BoomBang\Config\ConfigElement.cs" />
+    <Compile Include="BoomBang\Config\ConfigElementType.cs" />
+    <Compile Include="BoomBang\Config\ConfigManager.cs" />
+    <Compile Include="BoomBang\Config\Constants.cs" />
+    <Compile Include="BoomBang\Encription\Encipher.cs" />
+    <Compile Include="ns0\Class1.cs" />
+    <Compile Include="BoomBang\Game\Achievements\Achievement.cs" />
+    <Compile Include="BoomBang\Game\Achievements\AchievementManager.cs" />
+    <Compile Include="BoomBang\Game\Achievements\AchievementType.cs" />
+    <Compile Include="BoomBang\Game\Achievements\Quest.cs" />
+    <Compile Include="BoomBang\Game\Achievements\QuestType.cs" />
+    <Compile Include="BoomBang\Game\Advertisements\AdvertisementManager.cs" />
+    <Compile Include="BoomBang\Game\Catalog\CatalogManager.cs" />
+    <Compile Include="BoomBang\Game\Catalog\CatalogPurchaseHandler.cs" />
+    <Compile Include="BoomBang\Game\Contests\ContestHandler.cs" />
+    <Compile Include="BoomBang\Game\Contests\ContestItem.cs" />
+    <Compile Include="BoomBang\Game\Characters\CharacterInfo.cs" />
+    <Compile Include="BoomBang\Game\Characters\CharacterInfoLoader.cs" />
+    <Compile Include="BoomBang\Game\Characters\CharacterResolverCache.cs" />
+    <Compile Include="BoomBang\Game\Contests\FlowerPower\FlowerPowerManager.cs" />
+    <Compile Include="BoomBang\Game\Contests\FlowerPower\Notice.cs" />
+    <Compile Include="BoomBang\Game\Games\GameHandler.cs" />
+    <Compile Include="BoomBang\Game\Handlers\GlobalHandler.cs" />
+    <Compile Include="BoomBang\Game\Items\CatalogItem.cs" />
+    <Compile Include="BoomBang\Game\Laptop\LaptopHandler.cs" />
+    <Compile Include="BoomBang\Game\Laptop\SessionLaptopFriendCache.cs" />
+    <Compile Include="BoomBang\Game\Misc\CrossdomainPolicy.cs" />
+    <Compile Include="BoomBang\Game\Misc\Chat\ChatCommands.cs" />
+    <Compile Include="BoomBang\Game\Misc\NewsCacheManager.cs" />
+    <Compile Include="BoomBang\Game\Misc\SilverCoinsWorker.cs" />
+    <Compile Include="BoomBang\Game\Misc\UserIgnoreCache.cs" />
+    <Compile Include="BoomBang\Game\Misc\WordFilterManager.cs" />
+    <Compile Include="BoomBang\Game\Moderation\BanDetails.cs" />
+    <Compile Include="BoomBang\Game\Moderation\ModerationBanManager.cs" />
+    <Compile Include="BoomBang\Game\Navigation\Navigator.cs" />
+    <Compile Include="BoomBang\Game\Navigation\NavigatorCategory.cs" />
+    <Compile Include="BoomBang\Game\Navigation\NavigatorItem.cs" />
+    <Compile Include="BoomBang\Game\Pathfinding\Parsing.cs" />
+    <Compile Include="BoomBang\Game\Pathfinding\Pathfinder.cs" />
+    <Compile Include="BoomBang\Game\Pathfinding\PathfinderManager.cs" />
+    <Compile Include="BoomBang\Game\Pathfinding\Rotation.cs" />
+    <Compile Include="BoomBang\Game\Register\RegisterManager.cs" />
+    <Compile Include="BoomBang\Game\Sessions\Session.cs" />
+    <Compile Include="BoomBang\Game\Sessions\SessionManager.cs" />
+    <Compile Include="BoomBang\Game\Sessions\UserCredentialsAuthenticator.cs" />
+    <Compile Include="BoomBang\Game\Spaces\Heightmap.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceAccessType.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceActor.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceActorType.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceHandler.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceInfo.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceInfoLoader.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceInstance.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceManager.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceModel.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceModelType.cs" />
+    <Compile Include="BoomBang\Game\Spaces\SpaceType.cs" />
+    <Compile Include="BoomBang\Game\Spaces\TileState.cs" />
+    <Compile Include="BoomBang\Game\Spaces\UserMovementNode.cs" />
+    <Compile Include="BoomBang\Input.cs" />
+    <Compile Include="BoomBang\Network\BoomBangTcpListener.cs" />
+    <Compile Include="BoomBang\Network\OnNewConnectionCallback.cs" />
+    <Compile Include="BoomBang\Output.cs" />
+    <Compile Include="BoomBang\OutputLevel.cs" />
+    <Compile Include="BoomBang\Program.cs" />
+    <Compile Include="BoomBang\Specialized\Vector2.cs" />
+    <Compile Include="BoomBang\Specialized\Vector3.cs" />
+    <Compile Include="BoomBang\Storage\SqlDatabaseClient.cs" />
+    <Compile Include="BoomBang\Storage\SqlDatabaseManager.cs" />
+    <Compile Include="BoomBang\UnixTimestamp.cs" />
+    <Compile Include="BoomBang\Utils\ByteUtil.cs" />
+    <Compile Include="BoomBang\Utils\InputFilter.cs" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>

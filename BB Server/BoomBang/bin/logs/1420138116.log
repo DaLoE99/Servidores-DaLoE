@@ -1,0 +1,15 @@
+## Snowlight## Server output log file## Monday, April 01, 2013 8:11:06 AM[8:11 AM] Initializing Snowlight...[8:11 AM] Initializing MySQL manager...[8:11 AM] Could not initialize Snowlight: Access denied for user 'snow_usr'@'localhost' (using password: YES)
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.AuthenticateNew(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool..ctor(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPoolManager.GetPool(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Snowlight.Storage.SqlDatabaseManager.CreateClient(Int32 Id) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Storage\SqlDatabaseManager.cs:line 209
+   at Snowlight.Storage.SqlDatabaseManager.SetClientAmount(Int32 ClientAmount, String LogReason) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Storage\SqlDatabaseManager.cs:line 127
+   at Snowlight.Storage.SqlDatabaseManager.Initialize() in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Storage\SqlDatabaseManager.cs:line 45
+   at Snowlight.Program.Main(String[] args) in C:\Users\BoomBang.H74-121-181-99\Desktop\Serveru\Program.cs:line 77[8:11 AM] Cannot proceed; press any key to stop the server.

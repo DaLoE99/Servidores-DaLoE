@@ -1,0 +1,16 @@
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\bin\Release\BoomBang.exe
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\bin\Release\BoomBang.pdb
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\bin\Release\MySql.Data.dll
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.exe
+C:\Users\admin\Desktop\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.pdb
+C:\Users\kyle\Desktop\Burbian.net source\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.exe
+C:\Users\kyle\Desktop\Burbian.net source\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.pdb
+C:\Users\kyle\Desktop\Desktop Main\Desktop 6\Burbian.net source\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.exe
+C:\Users\kyle\Desktop\Desktop Main\Desktop 6\Burbian.net source\BoomBang Programming\BoomBang\obj\x86\Release\BoomBang.pdb
+C:\Users\Administrador\Desktop\4\obj\x86\Release\BoomBang.exe
+C:\Users\Administrador\Desktop\4\obj\x86\Release\BoomBang.pdb
+C:\Users\Administrador\Desktop\4\obj\x86\Release\BoomBang.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\4\bin\Release\BoomBang.exe
+C:\Users\Administrador\Desktop\4\bin\Release\BoomBang.pdb
+C:\Users\Administrador\Desktop\4\bin\Release\MySql.Data.dll
